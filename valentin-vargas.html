@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Valentín Vargas | Pinturas, cerámicas y carpintería en general</title>
+<meta name="description" content="Pintura, instalación de cerámicas y carpintería a medida. Cotiza tu proyecto con Valentín Vargas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --ink:#17191c;
+  --ink-2:#22262b;
+  --paper:#fbfaf6;
+  --orange:#f5a000;
+  --orange-deep:#d98200;
+  --blue:#2f7bd0;
+  --line-dark:#3a3f46;
+  /* services section tokens (light by default) */
+  --svc-bg:#fbfaf6;
+  --svc-text:#17191c;
+  --svc-muted:#5a5f66;
+  --svc-line:#d9d5c8;
+  --font-display:"Barlow Condensed","Arial Narrow",Impact,sans-serif;
+  --font-body:"Barlow",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --svc-bg:#1d2024;
+    --svc-text:#f3f1ea;
+    --svc-muted:#a9adb3;
+    --svc-line:#3a3f46;
+  }
+}
+:root[data-theme="dark"]{
+  --svc-bg:#1d2024;
+  --svc-text:#f3f1ea;
+  --svc-muted:#a9adb3;
+  --svc-line:#3a3f46;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;font-family:var(--font-body);font-size:1.0625rem;line-height:1.55;color:var(--paper);background:var(--ink)}
+img,svg{max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--orange);outline-offset:3px;border-radius:4px}
+.wrap{width:min(1120px,100% - 2.5rem);margin-inline:auto}
+
+/* ---------- top bar ---------- */
+.topbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(23,25,28,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line-dark)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:64px}
+.brand{display:flex;align-items:center;gap:.65rem;text-decoration:none}
+.brand img,.brand svg{width:42px;height:42px;flex:none;object-fit:contain}
+.brand-fallback[hidden]{display:none}
+.brand img:not([hidden])~.brand-fallback{display:none}
+.brand-name{font-family:var(--font-display);font-weight:800;font-size:1.5rem;line-height:1;letter-spacing:.01em;white-space:nowrap}
+.brand-sub{display:block;font-family:var(--font-body);font-weight:500;font-size:.72rem;color:#b9bcc1;letter-spacing:.02em;margin-top:2px}
+.topnav{display:flex;align-items:center;gap:1.4rem}
+.topnav a{text-decoration:none;font-weight:500;font-size:.98rem;color:#d9dbde}
+.topnav a:hover{color:var(--orange)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;font-family:var(--font-display);font-weight:700;font-size:1.25rem;letter-spacing:.02em;line-height:1;padding:.95rem 1.5rem;border-radius:6px;border:2px solid transparent;text-decoration:none;cursor:pointer;transition:background .15s,color .15s,border-color .15s,transform .15s}
+.btn-primary{background:var(--orange);color:var(--ink)}
+.btn-primary:hover{background:#ffb524}
+.btn-primary:active{transform:translateY(1px)}
+.btn-ghost{border-color:#6a6f76;color:var(--paper);background:transparent}
+.btn-ghost:hover{border-color:var(--orange);color:var(--orange)}
+.topbar .btn{font-size:1.05rem;padding:.65rem 1.05rem}
+@media (max-width:720px){.topnav a.nav-link{display:none}.brand-sub{display:none}}
+@media (max-width:480px){.brand-name{font-size:1.2rem}.topbar .btn{font-size:.95rem;padding:.6rem .7rem}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;padding:clamp(3rem,8vw,6rem) 0 0;background-color:var(--ink);background-image:linear-gradient(90deg,rgba(23,25,28,.94) 0%,rgba(23,25,28,.78) 55%,rgba(23,25,28,.42) 100%),url("assets/fondo.png"),radial-gradient(1200px 500px at 85% -10%,rgba(245,160,0,.16),transparent 60%);background-position:center,center,85% -10%;background-size:cover,cover,1200px 500px;background-repeat:no-repeat}
+.hero h1{font-family:var(--font-display);font-weight:800;font-size:clamp(3.2rem,11vw,7.6rem);line-height:.92;letter-spacing:-.005em;margin:0;max-width:11ch;text-wrap:balance}
+.hero h1 span{display:block}
+.hero .wrap{animation:rise-in .8s cubic-bezier(.2,.7,.2,1) both}
+@keyframes rise-in{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@media (max-width:720px){.hero h1{max-width:100%;font-size:clamp(3rem,9vw,5rem)}}
+.hero-lead{max-width:34rem;margin:1.6rem 0 0;font-size:1.2rem;color:#d3d5d9}
+.hero-actions{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2rem}
+.hero-meta{display:flex;flex-wrap:wrap;gap:.4rem 1.6rem;margin:2.2rem 0 0;padding:0;list-style:none;color:#b9bcc1;font-size:.98rem}
+.hero-meta li{display:flex;align-items:center;gap:.5rem}
+.hero-meta li::before{content:"";width:8px;height:8px;background:var(--orange);border-radius:2px}
+/* measuring tape: the one memorable element */
+.tape{margin-top:clamp(2.5rem,6vw,4.5rem);height:64px;background:var(--orange);position:relative;color:var(--ink);
+  background-image:
+    repeating-linear-gradient(90deg,var(--ink) 0 2px,transparent 2px 12px),
+    repeating-linear-gradient(90deg,var(--ink) 0 2px,transparent 2px 60px);
+  background-size:100% 14px,100% 26px;background-repeat:no-repeat;background-position:0 0,0 0}
+.tape::after{content:"";position:absolute;left:0;right:0;bottom:0;height:8px;background:var(--ink);opacity:.9}
+.tape-marks{position:absolute;inset:auto 0 12px 0;display:flex;justify-content:space-between;padding:0 1.25rem;font-family:var(--font-display);font-weight:700;font-size:1.05rem}
+.tape-marks span{transform:translateX(-50%)}
+@media (max-width:720px){.tape-marks span:nth-child(even){display:none}}
+
+/* ---------- services ---------- */
+.services{background:var(--svc-bg);color:var(--svc-text);padding:clamp(3.5rem,8vw,6rem) 0}
+.services h2,.quote h2{font-family:var(--font-display);font-weight:800;font-size:clamp(2.4rem,6vw,4rem);line-height:1;margin:0 0 .6rem;letter-spacing:-.005em}
+.services .intro{color:var(--svc-muted);max-width:36rem;margin:0 0 2.8rem}
+.svc{display:grid;grid-template-columns:minmax(0,220px) 1fr;gap:2rem;align-items:center;padding:2rem 0;border-top:1px solid var(--svc-line)}
+.svc:last-child{border-bottom:1px solid var(--svc-line)}
+.swatch{height:150px;border-radius:6px;position:relative;overflow:hidden;background-position:center;background-size:cover;background-repeat:no-repeat;box-shadow:inset 0 0 0 1px rgba(0,0,0,.12)}
+.swatch.paint{background-image:url("assets/pintura.png")}
+.swatch.tile{background-image:url("assets/ceramica.png")}
+.swatch.wood{background-image:url("assets/carpinteria.png")}
+.svc h3{font-family:var(--font-display);font-weight:800;font-size:clamp(2rem,4.5vw,2.9rem);line-height:1;margin:0 0 .25rem}
+.svc .scope{font-weight:600;color:var(--orange-deep);margin:0 0 .6rem}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .svc .scope{color:var(--orange)}}
+:root[data-theme="dark"] .svc .scope{color:var(--orange)}
+.svc p{margin:0;color:var(--svc-muted);max-width:38rem}
+@media (max-width:640px){.svc{grid-template-columns:1fr;gap:1.1rem}.swatch{height:96px}}
+.motion-ready .svc,.motion-ready .quote-grid>*{opacity:0;transform:translateY(18px);transition:opacity .65s ease,transform .65s cubic-bezier(.2,.7,.2,1)}
+.motion-ready .svc.is-visible,.motion-ready .quote-grid>*.is-visible{opacity:1;transform:translateY(0)}
+
+/* ---------- quote form ---------- */
+.quote{background:var(--ink);padding:clamp(3.5rem,8vw,6rem) 0;border-top:8px solid var(--orange)}
+.quote-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:clamp(2rem,5vw,4.5rem);align-items:start}
+.quote .side p{color:#c9cbd0;max-width:28rem}
+.steps{margin:1.8rem 0 0;padding:0;list-style:none;counter-reset:s}
+.steps li{counter-increment:s;display:flex;gap:.9rem;margin:0 0 1rem;color:#e6e7e9}
+.steps li::before{content:counter(s);flex:none;width:30px;height:30px;border-radius:50%;background:var(--orange);color:var(--ink);font-family:var(--font-display);font-weight:800;font-size:1.05rem;display:grid;place-items:center;margin-top:1px}
+form{background:var(--ink-2);border:1px solid var(--line-dark);border-radius:10px;padding:clamp(1.25rem,3vw,2rem)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.field{margin-bottom:1.1rem}
+label{display:block;font-weight:600;margin-bottom:.35rem;font-size:.98rem}
+.hint{font-weight:400;color:#a9adb3}
+input,select,textarea{width:100%;font:inherit;color:var(--paper);background:#15171a;border:1.5px solid #4a5058;border-radius:6px;padding:.8rem .9rem;min-height:48px}
+textarea{min-height:130px;resize:vertical}
+input::placeholder,textarea::placeholder{color:#7d838b}
+input:hover,select:hover,textarea:hover{border-color:#6a6f76}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 3px rgba(245,160,0,.28)}
+select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'%3E%3Cpath d='M1 1l6 6 6-6' fill='none' stroke='%23f5a000' stroke-width='2'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center;padding-right:2.6rem}
+.err{display:none;color:#ff9a8a;font-size:.9rem;margin-top:.3rem}
+.field.invalid .err{display:block}
+.field.invalid input,.field.invalid select,.field.invalid textarea{border-color:#ff7a66}
+.actions{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:.4rem}
+.actions .btn{flex:1 1 220px}
+.note{font-size:.92rem;color:#a9adb3;margin:1rem 0 0}
+.status{display:none;margin-top:1rem;padding:.85rem 1rem;border-radius:6px;background:rgba(245,160,0,.14);border:1px solid var(--orange);color:#ffe2a8}
+.status.show{display:block}
+@media (max-width:860px){.quote-grid{grid-template-columns:1fr}.row{grid-template-columns:1fr}}
+
+/* ---------- footer ---------- */
+footer{background:#111315;border-top:1px solid var(--line-dark);padding:2.5rem 0 5.5rem}
+.foot{display:flex;flex-wrap:wrap;gap:2rem 4rem;justify-content:space-between}
+.foot h4{font-family:var(--font-display);font-size:1.35rem;margin:0 0 .5rem}
+.foot ul{list-style:none;margin:0;padding:0}
+.foot li{margin:.25rem 0}
+.foot a{text-decoration:none;color:#d9dbde}
+.foot a:hover{color:var(--orange);text-decoration:underline}
+.copy{margin-top:2rem;color:#8b9097;font-size:.9rem}
+
+/* ---------- floating whatsapp ---------- */
+.wa{position:fixed;right:1rem;bottom:calc(1rem + env(safe-area-inset-bottom,0px));z-index:30;display:flex;align-items:center;gap:.6rem;background:#25d366;color:#0b2e17;font-weight:700;text-decoration:none;padding:.85rem 1.1rem;border-radius:999px;box-shadow:0 6px 20px rgba(0,0,0,.4);transition:transform .28s cubic-bezier(.2,.8,.2,1),box-shadow .28s ease,background-color .28s ease}
+.wa svg{width:26px;height:26px}
+.wa:hover,.wa:focus-visible{background:#3be07a;transform:translateY(-5px) scale(1.04);box-shadow:0 12px 28px rgba(0,0,0,.36)}
+.wa:hover svg,.wa:focus-visible svg{animation:wa-wiggle .45s ease-in-out}
+@keyframes wa-wiggle{0%,100%{transform:rotate(0)}30%{transform:rotate(-12deg)}65%{transform:rotate(10deg)}}
+@media (max-width:480px){.wa span{display:none}.wa{padding:.9rem}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.motion-ready .svc,.motion-ready .quote-grid>*{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#inicio" aria-label="Valentín Vargas, inicio">
+      <img src="assets/logo.png" alt="" hidden>
+      <svg class="brand-fallback" viewBox="0 0 48 48" aria-hidden="true"><path d="M4 24 24 7l20 17" fill="none" stroke="#f5a000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><rect x="15" y="22" width="18" height="18" rx="2" fill="#f3f1ea"/><path d="M24 22v18M15 31h18" stroke="#17191c" stroke-width="2.5"/></svg>
+      <span><span class="brand-name">Valentín Vargas</span><span class="brand-sub">Pinturas · Cerámicas · Carpintería</span></span>
+    </a>
+    <nav class="topnav" aria-label="Principal">
+      <a class="nav-link" href="#servicios">Servicios</a>
+      <a class="btn btn-primary" href="#cotizar">Cotiza tu proyecto</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+  <section class="hero">
+    <div class="wrap">
+      <h1><span>Remodelaciones</span><span>y construcción.</span></h1>
+      <p class="hero-lead">Pintura, cerámicas y carpintería a medida para tu casa u oficina. ¡Tu proyecto, en buenas manos!</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#cotizar">Cotiza tu proyecto</a>
+        <a class="btn btn-ghost" href="https://wa.me/56956462370?text=Hola%20Valent%C3%ADn%2C%20quisiera%20cotizar%20un%20proyecto." target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
+      </div>
+      <ul class="hero-meta">
+        <li>Interiores y exteriores</li>
+        <li>Pisos y muros</li>
+        <li>Trabajos a medida</li>
+      </ul>
+    </div>
+    <div class="tape" aria-hidden="true">
+      <div class="tape-marks"><span>0</span><span>10</span><span>20</span><span>30</span><span>40</span><span>50</span><span>60</span><span>70</span><span>80</span></div>
+    </div>
+  </section>
+
+  <section class="services" id="servicios">
+    <div class="wrap">
+      <h2>Qué hacemos</h2>
+      <p class="intro">Tres oficios, un solo maestro a cargo. Coordinamos una visita, medimos y te entregamos una cotización clara.</p>
+
+      <article class="svc">
+        <div class="swatch paint" role="img" aria-label="Trabajo de pintura"></div>
+        <div>
+          <h3>Pinturas</h3>
+          <p class="scope">Interiores y exteriores</p>
+          <p>Transformamos tus espacios con acabados perfectos, tanto en interiores como en exteriores.</p>
+        </div>
+      </article>
+
+      <article class="svc">
+        <div class="swatch tile" role="img" aria-label="Cerámicas instaladas"></div>
+        <div>
+          <h3>Cerámicas</h3>
+          <p class="scope">Pisos y muros</p>
+          <p>Instalación precisa y duradera para pisos y muros, dándole un nuevo aire a tu hogar.</p>
+        </div>
+      </article>
+
+      <article class="svc">
+        <div class="swatch wood" role="img" aria-label="Trabajo de carpintería"></div>
+        <div>
+          <h3>Carpintería</h3>
+          <p class="scope">Muebles, puertas, reparaciones y más</p>
+          <p>Nos encargamos de tus muebles, puertas, reparaciones y más, con trabajos a medida y atención al detalle.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="quote" id="cotizar">
+    <div class="wrap quote-grid">
+      <div class="side">
+        <h2>Cotiza tu proyecto</h2>
+        <p>Cuéntanos qué necesitas. Mientras más detalle, más rápido podemos responderte.</p>
+        <ol class="steps">
+          <li>Completa el formulario con los datos de tu proyecto.</li>
+          <li>Envíalo por WhatsApp o por correo.</li>
+          <li>Te contactamos para coordinar una visita y entregarte la cotización.</li>
+        </ol>
+      </div>
+
+      <form id="qform" novalidate>
+        <div class="row">
+          <div class="field">
+            <label for="nombre">Nombre y apellido</label>
+            <input id="nombre" name="nombre" type="text" autocomplete="name" placeholder="Ej: María Soto" required>
+            <div class="err">Escribe tu nombre y apellido.</div>
+          </div>
+          <div class="field">
+            <label for="telefono">Teléfono o WhatsApp</label>
+            <input id="telefono" name="telefono" type="tel" inputmode="tel" autocomplete="tel" placeholder="Ej: 9 1234 5678" required>
+            <div class="err">Ingresa un teléfono de contacto válido.</div>
+          </div>
+        </div>
+        <div class="field">
+          <label for="correo">Correo electrónico <span class="hint">(opcional)</span></label>
+          <input id="correo" name="correo" type="email" autocomplete="email" placeholder="tucorreo@ejemplo.com">
+          <div class="err">Revisa que el correo esté bien escrito.</div>
+        </div>
+        <div class="field">
+          <label for="servicio">Tipo de servicio</label>
+          <select id="servicio" name="servicio" required>
+            <option value="">Elige una opción</option>
+            <option>Pintura</option>
+            <option>Cerámica</option>
+            <option>Carpintería</option>
+            <option>Otro</option>
+          </select>
+          <div class="err">Elige el tipo de servicio.</div>
+        </div>
+        <div class="field">
+          <label for="detalle">Descripción del proyecto</label>
+          <textarea id="detalle" name="detalle" placeholder="Qué quieres hacer, en qué espacio, medidas aproximadas, fechas que te acomodan…" required></textarea>
+          <div class="err">Cuéntanos brevemente en qué consiste tu proyecto.</div>
+        </div>
+        <div class="actions">
+          <button class="btn btn-primary" type="button" id="sendWa">Enviar por WhatsApp</button>
+          <button class="btn btn-ghost" type="button" id="sendMail">Enviar por correo</button>
+        </div>
+        <p class="note">¿Tienes fotos del espacio? Adjúntalas en el chat de WhatsApp después de enviar, así vemos el lugar antes de cotizar.</p>
+        <div class="status" id="status" role="status" aria-live="polite"></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <h4>Valentín Vargas</h4>
+        <p style="margin:0;color:#b9bcc1">Pinturas, cerámicas y carpintería en general.<br>¡Tu proyecto, en buenas manos!</p>
+      </div>
+      <div>
+        <h4>Contacto directo</h4>
+        <ul>
+          <li>WhatsApp: <a href="https://wa.me/56956462370" target="_blank" rel="noopener">956462370</a></li>
+          <li>Correo: <a href="mailto:valentinvargas217@gmail.com">valentinvargas217@gmail.com</a></li>
+          <li>Instagram: <a href="https://www.instagram.com/valentinvargas2026" target="_blank" rel="noopener">@valentinvargas2026</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="copy">© Valentín Vargas. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/56956462370?text=Hola%20Valent%C3%ADn%2C%20quisiera%20cotizar%20un%20proyecto." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+  <svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16 3C9.4 3 4 8.3 4 14.8c0 2.3.7 4.5 1.9 6.3L4 28l7.1-1.8c1.7.9 3.6 1.4 5.6 1.4 6.6 0 12-5.3 12-11.8S22.600 3 16 3zm0 21.500c-1.800 0-3.500-.5-5-1.400l-.4-.2-4.200 1.100 1.100-4-.3-.4a9.300 9.300 0 0 1-1.500-5c0-5.200 4.300-9.400 9.600-9.400s9.600 4.200 9.600 9.400-4.300 9.500-9.600 9.500zm5.300-7c-.3-.1-1.700-.8-2-.9-.3-.1-.5-.1-.7.100-.2.300-.8.900-.9 1.100-.2.200-.3.200-.6.100-.3-.1-1.200-.4-2.300-1.400-.8-.7-1.400-1.600-1.600-1.900-.2-.3 0-.4.100-.6l.4-.5c.1-.2.200-.3.300-.5.100-.2 0-.4 0-.5l-.9-2.100c-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.100-.7.300-.3.300-1 1-1 2.400s1 2.800 1.200 3c.1.200 2 3.100 4.900 4.300 2.900 1.200 2.900.8 3.400.8.500-.1 1.700-.7 1.900-1.400.2-.7.200-1.200.2-1.400-.1-.1-.3-.2-.6-.3z"/></svg>
+  <span>WhatsApp</span>
+</a>
+
+<script>
+(function(){
+  var WA = "56956462370";
+  var MAIL = "valentinvargas217@gmail.com";
+  var f = document.getElementById("qform");
+  var status = document.getElementById("status");
+  var brandLogo = document.querySelector(".brand img");
+  var brandFallback = document.querySelector(".brand-fallback");
+  function showBrandImage(){ brandLogo.hidden = false; brandFallback.hidden = true; }
+  brandLogo.addEventListener("load", showBrandImage);
+  brandLogo.addEventListener("error", function(){ brandLogo.hidden = true; brandFallback.hidden = false; });
+  if(brandLogo.complete && brandLogo.naturalWidth) showBrandImage();
+  var animatedSections = document.querySelectorAll(".svc, .quote-grid > *");
+  if("IntersectionObserver" in window){
+    document.body.classList.add("motion-ready");
+    var revealObserver = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add("is-visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.14});
+    animatedSections.forEach(function(section){ revealObserver.observe(section); });
+  }else{
+    animatedSections.forEach(function(section){ section.classList.add("is-visible"); });
+  }
+
+  function setInvalid(id, bad){
+    var field = document.getElementById(id).closest(".field");
+    field.classList.toggle("invalid", bad);
+  }
+  function validate(){
+    var v = {
+      nombre: f.nombre.value.trim(),
+      telefono: f.telefono.value.trim(),
+      correo: f.correo.value.trim(),
+      servicio: f.servicio.value,
+      detalle: f.detalle.value.trim()
+    };
+    var ok = true;
+    var checks = {
+      nombre: v.nombre.split(/\s+/).length >= 2 && v.nombre.length >= 4,
+      telefono: v.telefono.replace(/\D/g,"").length >= 8,
+      correo: v.correo === "" || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.correo),
+      servicio: v.servicio !== "",
+      detalle: v.detalle.length >= 10
+    };
+    Object.keys(checks).forEach(function(k){
+      setInvalid(k, !checks[k]);
+      if(!checks[k]) ok = false;
+    });
+    if(!ok){
+      var first = f.querySelector(".field.invalid input, .field.invalid select, .field.invalid textarea");
+      if(first) first.focus();
+      status.classList.remove("show");
+      return null;
+    }
+    return v;
+  }
+  function body(v){
+    var lines = [
+      "Hola Valentín, quiero cotizar un proyecto.",
+      "",
+      "Nombre: " + v.nombre,
+      "Teléfono: " + v.telefono
+    ];
+    if(v.correo) lines.push("Correo: " + v.correo);
+    lines.push("Servicio: " + v.servicio, "", "Detalle del proyecto:", v.detalle);
+    return lines.join("\n");
+  }
+  function show(msg){ status.textContent = msg; status.classList.add("show"); }
+
+  document.getElementById("sendWa").addEventListener("click", function(){
+    var v = validate(); if(!v) return;
+    window.open("https://wa.me/" + WA + "?text=" + encodeURIComponent(body(v)), "_blank", "noopener");
+    show("Abrimos WhatsApp con tu solicitud. Envía el mensaje y, si tienes fotos del espacio, adjúntalas en el chat.");
+  });
+  document.getElementById("sendMail").addEventListener("click", function(){
+    var v = validate(); if(!v) return;
+    var subject = "Cotización: " + v.servicio + " - " + v.nombre;
+    window.location.href = "mailto:" + MAIL + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body(v));
+    show("Abrimos tu aplicación de correo con la solicitud lista para enviar.");
+  });
+  f.addEventListener("input", function(e){
+    var field = e.target.closest(".field");
+    if(field) field.classList.remove("invalid");
+  });
+})();
+</script>
+</body>
+</html>
